@@ -36,7 +36,7 @@ public class Controller_Movement : MonoBehaviour
         }
         
 
-        rb.AddForce(new Vector3(hAxis, 0, yAxis) * speed, ForceMode.VelocityChange);
+        rb.AddForce((new Vector3(hAxis, 0, yAxis) * speed) * Time.deltaTime, ForceMode.VelocityChange);
 
         rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
 

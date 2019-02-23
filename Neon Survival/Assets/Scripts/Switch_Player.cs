@@ -9,7 +9,7 @@ public class Switch_Player : MonoBehaviour
     void Start()
     {
         playerNum = GetComponent<Controller_Movement>().playerNum;
-        print(playerNum);
+
     }
 
     void Update()
@@ -32,6 +32,7 @@ public class Switch_Player : MonoBehaviour
 
         foreach (Controller_Movement player in players) {
             player.SwtichPlayer();
+            player.GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
         playerNum = GetComponent<Controller_Movement>().playerNum;
 
