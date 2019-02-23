@@ -51,9 +51,19 @@ public class Controller_Movement : MonoBehaviour
         if (playerNum == 1)
         {
             playerNum = 2;
+
+            if (GetComponent<Take_Control>() != null)
+            {
+                GetComponent<Take_Control>().SetNumber();
+            }
         }
         else if (playerNum == 2) {
             playerNum = 1;
+
+            if (GetComponent<Take_Control>() != null)
+            {
+                GetComponent<Take_Control>().SetNumber();
+            }
         }
         
     }
