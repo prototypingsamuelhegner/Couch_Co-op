@@ -9,7 +9,7 @@ public class Collision_Script : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene("Score Screen");
+            collision.transform.GetComponent<Health>().RemoveHealth(5);
         }
 
         if (collision.gameObject.tag == "Enemy") {
