@@ -41,5 +41,26 @@ public class Switch_Player : MonoBehaviour
 
         players[0].transform.position = pos1;
         players[1].transform.position = pos0;
+
+        foreach (Controller_Movement player in players)
+        {
+            if (player.name == "Player Ship") {
+
+                GameObject[] objects = GameObject.FindGameObjectsWithTag("Controllable");
+
+                foreach (GameObject obj in objects) {
+                    int ammount = 0;
+                    print(player.gameObject.GetComponent<Collider>().bounds.Intersects(obj.GetComponent<Collider>().bounds));
+                    while (player.GetComponent<Collider>().bounds.Intersects(obj.GetComponent<Collider>().bounds)) {
+                        Vector3 newPlayerPos = player.transform.position;
+                        newPlayerPos.x++;
+                        player.transform.position = newPlayerPos;
+                        ammount++;
+                        print("Looped " + ammount + " times");
+                    }
+                }
+                
+            }
+        }
     }
 }

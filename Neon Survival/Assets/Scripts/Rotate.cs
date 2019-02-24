@@ -12,6 +12,8 @@ public class Rotate : MonoBehaviour
 
     GameObject enviroPlayer;
 
+    public GameObject objToRotate;
+
     void Awake()
     {
         enviroPlayer = GameObject.Find("Player Environment");
@@ -24,11 +26,26 @@ public class Rotate : MonoBehaviour
         if (playerNum == 1 && enviroPlayer.GetComponent<Take_Control>().objInControl == gameObject)
         {
             newY += (Input.GetAxis("Horizontal_P1") * rotSpeed) * Time.deltaTime;
-            transform.rotation = Quaternion.Euler(new Vector3(0, newY, 0));
+
+            if (objToRotate != null)
+            {
+                objToRotate.transform.rotation = Quaternion.Euler(new Vector3(0, newY, 0));
+            }
+            else {
+                transform.rotation = Quaternion.Euler(new Vector3(0, newY, 0));
+            }
+
+            
         }
         else if (playerNum == 2 && enviroPlayer.GetComponent<Take_Control>().objInControl == gameObject) {
             newY += (Input.GetAxis("Horizontal_P2") * rotSpeed) * Time.deltaTime;
-            transform.rotation = Quaternion.Euler(new Vector3(0, newY, 0));
+            if (objToRotate != null)
+            {
+                objToRotate.transform.rotation = Quaternion.Euler(new Vector3(0, newY, 0));
+            }
+            else {
+                transform.rotation = Quaternion.Euler(new Vector3(0, newY, 0));
+            }
         }
         
     }
