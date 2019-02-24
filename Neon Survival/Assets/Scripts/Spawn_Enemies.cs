@@ -6,12 +6,13 @@ public class Spawn_Enemies : MonoBehaviour
 {
     Object_Pool pool;
     GameObject player;
+    public float spawnRatePerSecond;
 
     void Start()
     {
         player = GameObject.Find("Player Ship");
         pool = Object_Pool.Instance;
-        InvokeRepeating("SpawnEnemy", 0, 1f);
+        InvokeRepeating("SpawnEnemy", 0, 1f/spawnRatePerSecond);
     }
 
     void Update()

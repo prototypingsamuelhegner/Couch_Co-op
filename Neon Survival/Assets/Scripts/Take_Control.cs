@@ -51,6 +51,14 @@ public class Take_Control : MonoBehaviour
                 transform.position = new Vector3(objInControl.transform.position.x, transform.position.y, objInControl.transform.position.z);
                 Invoke("TurnOnControl", 0.2f);
             }
+
+            if (playerNum == 1 && other.transform.tag == "Bomb")
+            {
+                if (!other.gameObject.GetComponent<Bomb>().lit)
+                {
+                    other.transform.parent.GetComponent<Bomb>().lit = true;
+                }
+            }
         }
         else if (Input.GetButton("A_P2"))
         {
@@ -62,6 +70,12 @@ public class Take_Control : MonoBehaviour
                 objInControl = other.gameObject;
                 transform.position = new Vector3(objInControl.transform.position.x, transform.position.y, objInControl.transform.position.z);
                 Invoke("TurnOnControl", 0.2f);
+            }
+
+            if (playerNum == 2 && other.transform.tag == "Bomb") {
+                if (!other.transform.parent.GetComponent<Bomb>().lit) {
+                    other.transform.parent.GetComponent<Bomb>().lit = true;
+                }
             }
         }
 
