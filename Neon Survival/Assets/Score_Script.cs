@@ -13,7 +13,7 @@ public class Score_Script : MonoBehaviour
 
     public static int multiplier;
 
-    public static float timeTillDecrease = 4f;
+    public static float timeTillDecrease = 2f;
 
     public static float multTimer;
 

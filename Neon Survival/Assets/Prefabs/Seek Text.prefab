@@ -174,5 +174,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalScoreObj: {fileID: 0}
-  speed: 500
+  speed: 750
   scoreToDeliver: 0
