@@ -15,6 +15,9 @@ public class Laser : MonoBehaviour
 
     public float moveSpeed;
 
+    public float maxX, minX;
+    public float maxY, minY;
+
     float newX = 0;
     float newY = 0;
 
@@ -47,12 +50,20 @@ public class Laser : MonoBehaviour
             {
                 if (horizontal)
                 {
+                    newX = 0;
+
                     newX += (Input.GetAxis("Horizontal_P1") * Time.deltaTime * moveSpeed);
-                    transform.position = new Vector3(transform.position.x + newX, transform.position.y, transform.position.z);
+
+                    if (transform.position.x + newX > minX && transform.position.x + newX < maxX)
+                        transform.position = new Vector3(transform.position.x + newX, transform.position.y, transform.position.z);
                 }
                 else
                 {
+                    newY = 0;
+
                     newY += ((Input.GetAxis("Vertical_P1") * Time.deltaTime * moveSpeed));
+
+                    if(transform.position.z + newY > minY && transform.position.z + newY < maxY)
                     transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + newY);
                 }
             }
@@ -60,12 +71,20 @@ public class Laser : MonoBehaviour
             {
                 if (horizontal)
                 {
+                    newX = 0;
+
                     newX += (Input.GetAxis("Horizontal_P2") * Time.deltaTime * moveSpeed);
-                    transform.position = new Vector3(transform.position.x + newX, transform.position.y, transform.position.z);
+
+                    if (transform.position.x + newX > minX && transform.position.x + newX < maxX)
+                        transform.position = new Vector3(transform.position.x + newX, transform.position.y, transform.position.z);
                 }
                 else
                 {
+                    newY = 0;
+
                     newY += ((Input.GetAxis("Vertical_P2") * Time.deltaTime * moveSpeed));
+
+                    if (transform.position.z + newY > minY && transform.position.z + newY < maxY)
                     transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + newY);
                 }
             }

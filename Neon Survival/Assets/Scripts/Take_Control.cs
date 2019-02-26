@@ -23,8 +23,13 @@ public class Take_Control : MonoBehaviour
     {
         if (inControl)
         {
+            transform.position = objInControl.transform.position;
             if (playerNum == 1 && Input.GetButtonDown("A_P1"))
             {
+                if (objInControl.GetComponent<Laser>() != null)
+                {
+                    objInControl.GetComponent<Laser>().controlled = false;
+                }
                 objInControl = null;
                 GetComponent<Controller_Movement>().enabled = true;
                 inControl = false;
@@ -32,6 +37,10 @@ public class Take_Control : MonoBehaviour
             }
             else if (playerNum == 2 && Input.GetButtonDown("A_P2"))
             {
+                if (objInControl.GetComponent<Laser>() != null)
+                {
+                    objInControl.GetComponent<Laser>().controlled = false;
+                }
                 objInControl = null;
                 GetComponent<Controller_Movement>().enabled = true;
                 inControl = false;
@@ -60,6 +69,7 @@ public class Take_Control : MonoBehaviour
     {
         if (Input.GetButton("A_P1"))
         {
+            print("test");
             if (playerNum == 1 && other.transform.tag == "Controllable" && inControl == false && pickedUp == false)
             {
                 GetComponent<Controller_Movement>().enabled = false;
@@ -93,6 +103,7 @@ public class Take_Control : MonoBehaviour
         }
         else if (Input.GetButton("A_P2"))
         {
+            print("test");
             if (playerNum == 2 && other.transform.tag == "Controllable" && inControl == false && pickedUp == false)
             {
                 GetComponent<Controller_Movement>().enabled = false;
@@ -130,11 +141,17 @@ public class Take_Control : MonoBehaviour
     void TurnOnControl()
     {
         inControl = true;
+
+        if(objInControl.GetComponent<Laser>() != null){
+            objInControl.GetComponent<Laser>().controlled = true;
+        }
     }
 
     void TurnOffControl()
     {
         GetComponent<SphereCollider>().enabled = true;
+
+
     }
 
     void TurnOnPickUp()
