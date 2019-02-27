@@ -30,24 +30,57 @@ public class Laser : MonoBehaviour
     public float slowestSpeed;
     public float fastestSpeed;
 
-    // Start is called before the first frame update
+    LineRenderer lr;
+
+    BoxCollider col;
+
+    public Color[] colors;
+
+
     void Start()
     {
         environmentPlayer = GameObject.Find("Player Environment");
         waypoint[0] = transform.GetChild(0).position;
         waypoint[1] = transform.GetChild(1).position;
         speed = Random.Range(slowestSpeed, fastestSpeed);
+        col = transform.GetChild(3).GetComponent<BoxCollider>();
+        lr = GetComponent<LineRenderer>();
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         int playerNumber = environmentPlayer.GetComponent<Controller_Movement>().playerNum;
+
+        if (active)
+        {
+            col.enabled = true;
+            lr.enabled = true;
+
+            if (controlled)
+            {
+                lr.startColor = colors[0];
+                lr.endColor = colors[0];
+            }
+            else {
+                lr.startColor = colors[1];
+                lr.endColor = colors[1];
+            }
+
+        }
+        else {
+            col.enabled = false;
+            lr.enabled = false;
+        }
 
         if (controlled)
         {
             if (playerNumber == 1)
             {
+                if (Input.GetButtonDown("X_P1")) {
+                    active = !active;
+                }
+
                 if (horizontal)
                 {
                     newX = 0;
@@ -69,6 +102,11 @@ public class Laser : MonoBehaviour
             }
             else
             {
+                if (Input.GetButtonDown("X_P2"))
+                {
+                    active = !active;
+                }
+
                 if (horizontal)
                 {
                     newX = 0;

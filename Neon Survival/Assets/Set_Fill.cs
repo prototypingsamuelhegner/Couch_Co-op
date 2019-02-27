@@ -15,7 +15,7 @@ public class Set_Fill : MonoBehaviour
 
     void Update()
     {
-        if (Score_Script.multTimer / Score_Script.timeTillDecrease != 1)
+        if (Score_Script.multTimer / Score_Script.timeTillDecrease != 1 && Score_Script.multiplier > 1)
         {
             img.fillAmount = (Score_Script.multTimer / Score_Script.timeTillDecrease);
         }

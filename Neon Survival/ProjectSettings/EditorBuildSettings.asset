@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Main Menu.unity
     guid: ef930d78a8193294690db7592b7cd90a
   - enabled: 1
-    path: Assets/Scenes/Tech Test Scene.unity
+    path: Assets/Scenes/Main Scene.unity
     guid: 245a89252c77e6d4f88bc3999e41ee61
   - enabled: 1
     path: Assets/Scenes/Result Screen.unity

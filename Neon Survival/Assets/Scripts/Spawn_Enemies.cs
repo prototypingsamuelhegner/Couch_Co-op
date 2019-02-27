@@ -23,9 +23,9 @@ public class Spawn_Enemies : MonoBehaviour
     void SpawnEnemy() {
         Vector3 randomPlace = Random.insideUnitCircle;
         randomPlace.Normalize();
-        randomPlace *= 25f;
+        randomPlace *= 40f;
         Vector3 placeToSpawn = new Vector3(randomPlace.x, 0.5f, randomPlace.y);
-        GameObject enemy = pool.SpawnFromPool("Enemy", player.transform.TransformPoint(placeToSpawn), Quaternion.identity);
+        GameObject enemy = pool.SpawnFromPool("Enemy", placeToSpawn, Quaternion.identity);
         enemy.GetComponent<Seek_Player>().maxSpeed = 1f;
     }
 }

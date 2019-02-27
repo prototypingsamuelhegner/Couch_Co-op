@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
-    int health;
+    public int health;
 
     public int startHealth;
 

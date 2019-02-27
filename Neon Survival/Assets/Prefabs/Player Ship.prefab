@@ -15,9 +15,11 @@ GameObject:
   - component: {fileID: 2626499653053756830}
   - component: {fileID: 2626499653053756825}
   - component: {fileID: 2626499653053756771}
+  - component: {fileID: 1289025699}
+  - component: {fileID: 301769115}
   m_Layer: 0
   m_Name: Player Ship
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,8 +108,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab9c2706de7b88b48ba394d4ae5ed065, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  maxSpeed: 5
+  speed: 75
+  maxSpeed: 7
   speedLossPercentagePerSecond: 2
   playerNum: 1
 --- !u!54 &2626499653053756825
@@ -125,7 +127,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 116
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &2626499653053756771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,5 +138,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b06074b5bbf324a42a4e471600f2df9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1289025699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2626499653053756824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5d5b6b49d3da434e87947187034826a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3
+  startHealth: 3
+--- !u!114 &301769115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2626499653053756824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1974f0a4f59f0441afe401246abce10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
