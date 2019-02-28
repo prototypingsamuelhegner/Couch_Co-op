@@ -13,6 +13,8 @@ public class Bomb : MonoBehaviour
 
     List<GameObject> thingsHit = new List<GameObject>();
 
+    public GameObject explosion;
+
     void Start()
     {
         lit = false;
@@ -32,6 +34,7 @@ public class Bomb : MonoBehaviour
 
     void Explode() {
         GetComponent<SphereCollider>().enabled = true;
+        Instantiate(explosion, transform.position, Quaternion.identity);
         Invoke("DisableBomb", explosionActiveTime);
     }
 
