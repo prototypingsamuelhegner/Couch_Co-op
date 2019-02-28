@@ -12,9 +12,15 @@ public class Health_Pack : MonoBehaviour
 
     public float fleeSpeed;
 
+    public Vector3 placeToMove;
+
+    public bool movingToPoint;
+
+    public bool leaving;
     void Start()
     {
         player = GameObject.Find("Player Ship");
+        movingToPoint = true;
     }
 
     void Update()
@@ -22,7 +28,16 @@ public class Health_Pack : MonoBehaviour
         float dist = Vector3.Distance(player.transform.position, transform.position);
 
         if (dist < fleeDistance) {
+            movingToPoint = false;
             Flee();
+        }
+
+        if(movingToPoint){
+            MoveToPoint();
+        }
+
+        if(leaving){
+            Leave();
         }
     }
 
@@ -32,6 +47,17 @@ public class Health_Pack : MonoBehaviour
         fleeVector.Normalize();
 
         transform.Translate(fleeVector * Time.deltaTime * fleeSpeed);
+    }
+
+    void MoveToPoint(){
+        transform.position = Vector3.MoveTowards(transform.position, new Vector3(placeToMove.x, transform.position.y, placeToMove.z), Time.deltaTime * fleeSpeed);
+    }
+
+    void Leave(){
+        transform.position = Vector3.MoveTowards(transform.position, new Vector3(placeToMove.x, transform.position.y, placeToMove.z), Time.deltaTime * fleeSpeed);
+        if(Vector3.Distance(transform.position, new Vector3(placeToMove.x, transform.position.y, placeToMove.z)) < 0.5f){
+            Destroy(gameObject);
+        }
     }
 
     
