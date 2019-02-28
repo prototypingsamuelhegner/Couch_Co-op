@@ -37,7 +37,7 @@ public class Seek_Player : MonoBehaviour
     }
 
     void RampSpeed() {
-        if(gameObject.activeSelf)
+        if(gameObject.activeSelf && maxSpeed <= GameObject.Find("Player Ship").GetComponent<Controller_Movement>().maxSpeed)
         maxSpeed += 0.15f;
     }
 }

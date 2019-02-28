@@ -6,6 +6,8 @@ public class Switch_Player : MonoBehaviour
 {
     int playerNum;
 
+    public GameObject particle;
+
     public int switchesLeft;
 
     void Start()
@@ -37,6 +39,7 @@ public class Switch_Player : MonoBehaviour
         foreach (Controller_Movement player in players) {
             player.SwtichPlayer();
             player.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            Instantiate(particle, player.transform.position, Quaternion.Euler(-80f, 0, 0));
         }
         playerNum = GetComponent<Controller_Movement>().playerNum;
 
