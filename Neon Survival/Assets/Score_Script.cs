@@ -20,7 +20,7 @@ public class Score_Script : MonoBehaviour
     public TextMeshProUGUI _mult;
     public TextMeshProUGUI _score;
     public TextMeshProUGUI _totalScore;
-    public TextMeshProUGUI _health;
+    public TextMeshProUGUI _switch;
 
 
     public GameObject tempText;
@@ -28,7 +28,8 @@ public class Score_Script : MonoBehaviour
 
     public static Vector3 spawnPoint;
 
-    public Health player;
+    public Switch_Player player;
+
 
     void Start()
     {
@@ -58,7 +59,7 @@ public class Score_Script : MonoBehaviour
         _mult.SetText(multiplier + "x");
         _score.SetText(score.ToString());
         _totalScore.SetText(totalScore.ToString());
-        _health.SetText(player.health.ToString());
+        _switch.SetText(player.switchesLeft.ToString());
     }
 
     public static void AddMutiplier() {

@@ -6,22 +6,26 @@ public class Switch_Player : MonoBehaviour
 {
     int playerNum;
 
+    public int switchesLeft;
+
     void Start()
     {
         playerNum = GetComponent<Controller_Movement>().playerNum;
-
+        switchesLeft = 3;
     }
 
     void Update()
     {
-        if (playerNum == 1 && Input.GetButtonDown("X_P1") && GameObject.FindObjectOfType<Take_Control>().objInControl == null)
+        if (playerNum == 1 && Input.GetButtonDown("X_P1") && GameObject.FindObjectOfType<Take_Control>().objInControl == null && switchesLeft > 0)
         {
             print("X Pressed on first controller");
             Switch();
+            switchesLeft--;
         }
-        else if (playerNum == 2 && Input.GetButtonDown("X_P2") && GameObject.FindObjectOfType<Take_Control>().objInControl == null) {
+        else if (playerNum == 2 && Input.GetButtonDown("X_P2") && GameObject.FindObjectOfType<Take_Control>().objInControl == null && switchesLeft > 0) {
             print("X Pressed on Second controller");
             Switch();
+            switchesLeft--;
         }
     }
 
