@@ -1736,6 +1736,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 442588348}
+  - component: {fileID: 442588349}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -1773,6 +1774,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &442588349
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442588347}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 27.840637, y: 1, z: 12.356608}
+  m_Center: {x: 18.09, y: 0, z: 5.678304}
 --- !u!4 &445531080 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6442299736949401673, guid: 0c24f850cf63dea4d903d517edae4064,
