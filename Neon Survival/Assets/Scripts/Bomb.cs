@@ -15,10 +15,12 @@ public class Bomb : MonoBehaviour
     public float explosionActiveTime;
 
     public GameObject range;
+    public GameObject model;
 
     List<GameObject> thingsHit = new List<GameObject>();
 
     public GameObject explosion;
+
 
     
 
@@ -55,9 +57,11 @@ public class Bomb : MonoBehaviour
         Instantiate(explosion, transform.position, Quaternion.identity);
         Invoke("DisableBomb", explosionActiveTime);
         CameraShaker.Instance.ShakeOnce(10f, 10f, 0.1f, 1f);
-        //GetComponent<AudioSource>().Play();
+        GetComponent<AudioSource>().Play();
         transform.parent.GetComponent<Spawn_Bomb>().activeBombs.Remove(this.gameObject);
-        
+        range.SetActive(false);
+        model.SetActive(false);
+        Invoke("DestroyBomb", 1.5f);
     }
 
     void OnTriggerStay(Collider other)
@@ -79,6 +83,9 @@ public class Bomb : MonoBehaviour
     private void DisableBomb()
     {
         GetComponent<SphereCollider>().enabled = false;
+    }
+
+    void DestroyBomb() {
         Destroy(gameObject);
     }
 }

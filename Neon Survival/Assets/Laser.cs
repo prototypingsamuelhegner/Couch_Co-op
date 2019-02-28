@@ -56,6 +56,10 @@ public class Laser : MonoBehaviour
 
         if (active)
         {
+            if (!GetComponent<AudioSource>().isPlaying) {
+                GetComponent<AudioSource>().Play();
+            }
+
             if(controlled){
                 yellow.SetActive(true);
                 red.SetActive(false);
@@ -79,6 +83,7 @@ public class Laser : MonoBehaviour
 
         }
         else {
+            GetComponent<AudioSource>().Stop();
             col.enabled = false;
             lr.enabled = false;
             yellow.SetActive(false);
