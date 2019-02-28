@@ -65,7 +65,7 @@ public class Health_Pack : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player") {
-            other.GetComponent<Health>().AddHealth(healthToAdd);
+            other.GetComponent<Switch_Player>().switchesLeft++;
 
             GameObject env = GameObject.Find("Player Environment");
             
