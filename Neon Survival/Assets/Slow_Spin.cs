@@ -35,6 +35,6 @@ public class Slow_Spin : MonoBehaviour
             spinFloat -= Time.deltaTime * speed;
         }
 
-        transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y + spinFloat, transform.rotation.z);
+        transform.rotation = Quaternion.Euler(transform.rotation.x + spinFloat, transform.rotation.y + spinFloat, transform.rotation.z + spinFloat);
     }
 }

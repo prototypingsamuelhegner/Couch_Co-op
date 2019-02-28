@@ -6,12 +6,16 @@ public class Laser_Manager : MonoBehaviour
 {
     public GameObject[] lasers;
 
+    public GameObject flash;
+
     public float timePerLaser;
+
+    int ran;
 
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("ActivateLaser", timePerLaser, timePerLaser);
+        InvokeRepeating("ChooseLaser", timePerLaser, timePerLaser);
     }
 
     // Update is called once per frame
@@ -20,7 +24,7 @@ public class Laser_Manager : MonoBehaviour
         
     }
 
-    void ActivateLaser() {
+    void ChooseLaser() {
         bool selected = false;
         while (!selected) {
 
@@ -37,17 +41,19 @@ public class Laser_Manager : MonoBehaviour
                 break;
             }
 
-            int ran = Random.Range(0, 4);
+            ran = Random.Range(0, 4);
 
 
             if (!lasers[ran].GetComponent<Laser>().active)
             {
-                lasers[ran].GetComponent<Laser>().active = true;
+                Invoke("StartLaser", 5f);
+                Instantiate(flash, lasers[ran].transform.position, Quaternion.identity, lasers[ran].transform);
                 selected = true;
             }
         }
-        
+    }
 
-        
+    void StartLaser(){
+        lasers[ran].GetComponent<Laser>().active = true;
     }
 }

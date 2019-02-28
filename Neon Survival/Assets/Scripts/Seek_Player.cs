@@ -31,6 +31,9 @@ public class Seek_Player : MonoBehaviour
         rb.AddForce(toPlayer * speed * Time.deltaTime, ForceMode.VelocityChange);
 
         rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
+
+        if(rb.velocity != Vector3.zero)
+        transform.rotation = Quaternion.LookRotation(rb.velocity);
     }
 
     void RampSpeed() {
