@@ -4,26 +4,24 @@ using UnityEngine;
 
 public class Slow_Spin : MonoBehaviour
 {
-    bool dir;
+    public bool dir;
 
     float spinFloat;
 
     public float speed;
+
+    public float minSpeed;
+    public float maxSpeed;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
         int ran = Random.Range(0, 2);
-        if (ran == 0)
-        {
-            dir = true;
-        }
-        else {
-            dir = false;
-        }
+        
 
-        speed = Random.Range(10, 30);
+        speed = Random.Range(minSpeed, maxSpeed);
     }
 
     // Update is called once per frame
@@ -36,7 +34,6 @@ public class Slow_Spin : MonoBehaviour
         else {
             spinFloat -= Time.deltaTime * speed;
         }
-        
 
         transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y + spinFloat, transform.rotation.z);
     }
