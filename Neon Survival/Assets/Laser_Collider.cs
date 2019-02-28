@@ -30,7 +30,8 @@ public class Laser_Collider : MonoBehaviour
             }
             else if (other.tag == "Enemy")
             {
-                other.gameObject.SetActive(false);
+                other.GetComponent<Break_Apart>().Break();
+
                 if (Score_Script.multiplier < 1) {
                     Score_Script.AddMutiplier();
                 }

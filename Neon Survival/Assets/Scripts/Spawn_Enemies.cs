@@ -6,6 +6,9 @@ public class Spawn_Enemies : MonoBehaviour
 {
     Object_Pool pool;
     GameObject player;
+
+
+    public GameObject enemyPrefab;
     public float spawnRatePerSecond;
 
     void Start()
@@ -25,7 +28,7 @@ public class Spawn_Enemies : MonoBehaviour
         randomPlace.Normalize();
         randomPlace *= 40f;
         Vector3 placeToSpawn = new Vector3(randomPlace.x, 0.5f, randomPlace.y);
-        GameObject enemy = pool.SpawnFromPool("Enemy", placeToSpawn, Quaternion.identity);
+        GameObject enemy = Instantiate(enemyPrefab, placeToSpawn, Quaternion.identity);
         enemy.GetComponent<Seek_Player>().maxSpeed = 1f;
     }
 }
