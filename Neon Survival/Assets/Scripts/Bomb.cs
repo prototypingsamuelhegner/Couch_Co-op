@@ -54,7 +54,7 @@ public class Bomb : MonoBehaviour
         GetComponent<SphereCollider>().enabled = true;
         Instantiate(explosion, transform.position, Quaternion.identity);
         Invoke("DisableBomb", explosionActiveTime);
-        CameraShaker.Instance.ShakeOnce(4f, 4f, 0.1f, 1f);
+        CameraShaker.Instance.ShakeOnce(10f, 10f, 0.1f, 1f);
         //GetComponent<AudioSource>().Play();
         transform.parent.GetComponent<Spawn_Bomb>().activeBombs.Remove(this.gameObject);
         
