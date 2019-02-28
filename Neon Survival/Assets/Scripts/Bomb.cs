@@ -36,6 +36,7 @@ public class Bomb : MonoBehaviour
         GetComponent<SphereCollider>().enabled = true;
         Instantiate(explosion, transform.position, Quaternion.identity);
         Invoke("DisableBomb", explosionActiveTime);
+        GetComponent<AudioSource>().Play();
     }
 
     void OnTriggerStay(Collider other)
