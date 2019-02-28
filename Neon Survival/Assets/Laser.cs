@@ -30,6 +30,8 @@ public class Laser : MonoBehaviour
     public float slowestSpeed;
     public float fastestSpeed;
 
+    public GameObject particles;
+
     LineRenderer lr;
 
     BoxCollider col;
@@ -54,6 +56,7 @@ public class Laser : MonoBehaviour
 
         if (active)
         {
+            particles.SetActive(true);
             col.enabled = true;
             lr.enabled = true;
 
@@ -71,6 +74,7 @@ public class Laser : MonoBehaviour
         else {
             col.enabled = false;
             lr.enabled = false;
+            particles.SetActive(false);
         }
 
         if (controlled)
