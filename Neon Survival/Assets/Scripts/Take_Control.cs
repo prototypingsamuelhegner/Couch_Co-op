@@ -86,7 +86,7 @@ public class Take_Control : MonoBehaviour
 
             if (playerNum == 1 && other.transform.tag == "Bomb" && pickedUp == false)
             {
-                if (!other.gameObject.GetComponent<Bomb>().lit)
+                if (!other.transform.parent.GetComponent<Bomb>().lit)
                 {
                     other.transform.parent.GetComponent<Bomb>().lit = true;
                 }
