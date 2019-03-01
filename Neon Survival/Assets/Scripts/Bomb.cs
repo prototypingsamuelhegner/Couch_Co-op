@@ -38,11 +38,11 @@ public class Bomb : MonoBehaviour
         if (lit) {
             fuseTimer -= Time.deltaTime;
             range.transform.localScale -= ogScale / (1/Time.deltaTime) * (1/maxFuse);
-            Color col = new Color(1f, 0, 0, 0.28f);
-            range.GetComponent<Renderer>().material.color = col;
+            Color col = new Color(1f, 0.1f, 1f);
+            range.GetComponent<Renderer>().material.SetColor("Color_61CF4ABE", col);
         }else{
-            Color col = new Color(1f, 1f, 1f, 0.28f);
-            range.GetComponent<Renderer>().material.color = col;
+            Color col = new Color(1f, 1f, 1f, 0f);
+            range.GetComponent<Renderer>().material.SetColor("Color_61CF4ABE", col);
         }
 
         if (fuseTimer <= 0) {

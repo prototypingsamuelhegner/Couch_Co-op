@@ -59,7 +59,7 @@ public class Score_Script : MonoBehaviour
         _mult.SetText(multiplier + "x");
         _score.SetText(score.ToString());
         _totalScore.SetText(totalScore.ToString());
-        _switch.SetText(player.switchesLeft.ToString());
+        _switch.SetText("Switches: " + player.switchesLeft.ToString());
     }
 
     public static void AddMutiplier() {
